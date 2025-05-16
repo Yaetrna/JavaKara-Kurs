@@ -1,0 +1,8 @@
+[book]
+authors = ["Florian Frey"]
+language = "de"
+src = "src"
+title = "JavaKaraKurs"
+
+[output.html]
+mathjax-support = true
