@@ -27,19 +27,30 @@
 
 # TODO! EXPLAIN
 
+## Einfache Lösung (`kara.`-Methoden)
+
+>
+> `myMainProgram executed in 1803744 milliseconds`
+> `myMainProgram executed in 1803.744 seconds`
+> `myMainProgram executed in 30.0624 minutes`
+>
+
 ```Java
 import javakara.JavaKaraProgram;
 
 public class Main extends JavaKaraProgram {
     private static final int DEPTH = 6;
+    private static final int WIDTH = 731;
+    private static final int HEIGHT = 365;
 
     public static void main(String[] args) {
         new Main().run();
-
     }
 
     public void myMainProgram() {
-        world.setSize(1000, 1000);
+        world.setSize(WIDTH, HEIGHT);
+        kara.setPosition(0, HEIGHT - 1);
+        kara.setDirection(3);
 
         sleep(5000);
 
@@ -47,15 +58,80 @@ public class Main extends JavaKaraProgram {
         String evolve = "FLFRFRFLF";
 
         for (int i = 0; i < DEPTH; i++) {
-            origin = replace(origin, evolve, 'F');
+            origin = origin.replaceAll("F", evolve);
+        }
+        interpret(origin);
+    }
+
+    private void interpret(String instructions) {
+        for (int i = 0; i < instructions.length(); i++) {
+            switch (instructions.charAt(i)) {
+                case 'F':
+                    kara.move();
+                    if (!kara.onLeaf()) {
+                        kara.putLeaf();
+                    }
+                    break;
+                case 'R':
+                    kara.turnRight();
+                    break;
+                case 'L':
+                    kara.turnLeft();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    private void sleep(long milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+}
+```
+
+## Optimierte Lösung
+
+>
+> `myMainProgram executed in 4154 milliseconds`
+> `myMainProgram executed in 4.154 seconds`
+> `myMainProgram executed in 0.069233 minutes`
+>
+
+```Java
+import javakara.JavaKaraProgram;
+
+public class Main extends JavaKaraProgram {
+    private static final int DEPTH = 6;
+    private static final int WIDTH = 731;
+    private static final int HEIGHT = 365;
+
+    public static void main(String[] args) {
+        new Main().run();
+    }
+
+    public void myMainProgram() {
+        world.setSize(WIDTH, HEIGHT);
+
+        sleep(5000);
+
+        String origin = "F";
+        String evolve = "FLFRFRFLF";
+
+        for (int i = 0; i < DEPTH; i++) {
+            origin = origin.replaceAll("F", evolve);
         }
         interpret(origin);
     }
 
     private void interpret(String instructions) {
         int x = 0;
-        int y = 0;
-        int state = 0;
+        int y = HEIGHT - 1;
+        int state = 1;
         /*
          * 0 → Norden
          * 1 → Osten
@@ -67,35 +143,38 @@ public class Main extends JavaKaraProgram {
                 case 'F':
                     switch (state) {
                         case 0:
-                            if ((y - 1) < 0) {
-                                y = world.getSizeY() - 1;
+                            if (y - 1 < 0) {
+                                y = HEIGHT - 1;
                             } else {
                                 y--;
                             }
                             break;
                         case 1:
-                            if ((x + 1) > world.getSizeX() - 1) {
+                            if (x + 1 > WIDTH - 1) {
                                 x = 0;
                             } else {
                                 x++;
                             }
                             break;
                         case 2:
-                            if ((y + 1) > world.getSizeY() - 1) {
+                            if (y + 1 > HEIGHT - 1) {
                                 y = 0;
                             } else {
                                 y++;
                             }
                             break;
                         case 3:
-                            if ((x - 1) < 0) {
-                                x = world.getSizeX() - 1;
+                            if (x - 1 < 0) {
+                                x = WIDTH - 1;
                             } else {
                                 x--;
                             }
+                            break;
                         default:
                             break;
                     }
+                    // world.setLeaf wirft keinen Fehler, wenn versucht wird
+                    // ein Blatt auf ein Feld zu setzen, auf dem bereits eins ist.
                     world.setLeaf(x, y, true);
                     break;
                 case 'R':
@@ -112,18 +191,6 @@ public class Main extends JavaKaraProgram {
                     break;
             }
         }
-    }
-
-    private String replace(String original, String replacement, char character) {
-        StringBuilder newString = new StringBuilder();
-        for (int i = 0; i < original.length(); i++) {
-            if (original.charAt(i) == character) {
-                newString.append(replacement);
-            } else {
-                newString.append(original.charAt(i));
-            }
-        }
-        return newString.toString();
     }
 
     private void sleep(long milliseconds) {
