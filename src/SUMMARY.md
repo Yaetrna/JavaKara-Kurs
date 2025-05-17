@@ -18,6 +18,8 @@
     - [Labyrinthe](./Interne%20JavaKara%20Aufgaben/XIII.%20Labyrinthe.md)
     - [Game Of Life](./Interne%20JavaKara%20Aufgaben/XIV.%20Game%20Of%20Life.md)
     - [Lindenmayer-Systeme](./Interne%20JavaKara%20Aufgaben/XV.%20Lindenmayer-Systeme.md)
+    - [Kleeblattbalken sortieren](./Interne%20JavaKara%20Aufgaben/XVI.%20Kleeblattbalken%20sortieren.md)
+    - [Mandelbrot-Fraktal](./Interne%20JavaKara%20Aufgaben/XVII.%20Mandelbrot-Fraktal.md)
 - [Externe JavaKara Aufgaben]()
 - [Rekursion]()
 - [Anhänge](./Anhänge/Übersicht.md)
