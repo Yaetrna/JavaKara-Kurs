@@ -1,6 +1,6 @@
 > # Aufgabenstellung
 >
-> ![Mandelbrot in Kara](./img/Mandelbrot.png)
+> ![Mandelbrot-Fraktal](./img/Mandelbrot.png)
 >
 > Programmieren Sie JavaKara so, dass er ein "zweifarbiges" Mandelbrot-Fraktal zeichnet!
 > 
@@ -159,7 +159,17 @@ import javakara.JavaKaraProgram;
 public class Main extends JavaKaraProgram {
     private static final int WIDTH = 500;
     private static final int HEIGHT = 500;
-    private static final int ITERATIONS = 100;
+    private static final int ITERATIONS = 1000;
+
+    /*
+    * Die Minimal- und Maximalwerte sind in dieser Version die genauen Grenzen der Mandelbrot-Menge
+    * Die obigen Werte sorgen für ein simpleres Mandelbrot-Fraktal, die Berechnungen sind aber dieselben.
+    */
+
+    private static final double REAL_MIN = -2.00;
+    private static final double REAL_MAX = 0.47;
+    private static final double IMAG_MIN = -1.12;
+    private static final double IMAG_MAX = 1.12;
 
     public static void main(String[] args) {
         new Main().run();
@@ -194,13 +204,8 @@ public class Main extends JavaKaraProgram {
     }
 
     private double[] getCoordinate(int xPixel, int yPixel) {
-        double realMin = -2.0;
-        double realMax = 1.0;
-        double imagMin = -1.5;
-        double imagMax = 1.5;
-
-        double cx = realMin + ((double) xPixel / WIDTH) * (realMax - realMin);
-        double cy = imagMin + ((double) yPixel / HEIGHT) * (imagMax - imagMin);
+        double cx = REAL_MIN + ((double) xPixel / WIDTH) * (REAL_MAX - REAL_MIN);
+        double cy = IMAG_MIN + ((double) yPixel / HEIGHT) * (IMAG_MAX - IMAG_MIN);
 
         return new double[]{cx, cy};
     }
