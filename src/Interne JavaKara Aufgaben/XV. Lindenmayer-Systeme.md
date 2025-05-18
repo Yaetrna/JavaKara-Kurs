@@ -1,4 +1,5 @@
 > # Aufgabenstellung
+> 
 >
 > Der Biologe Aristid Lindenmayer wandte kontextfreie Grammatiken an, um das Wachstum von Pflanzen zu beschreiben.
 > Wir können in Kara ein einfaches Turtle-Graphiksystem simulieren, mit dem wir einige Beispiele von Lindenmayer-Systemn studieren können.
@@ -64,6 +65,7 @@ public class Main extends JavaKaraProgram {
     }
 
     private void interpret(String instructions) {
+        kara.putLeaf();
         for (int i = 0; i < instructions.length(); i++) {
             switch (instructions.charAt(i)) {
                 case 'F':
@@ -107,8 +109,8 @@ import javakara.JavaKaraProgram;
 
 public class Main extends JavaKaraProgram {
     private static final int DEPTH = 6;
-    private static final int WIDTH = 731;
     private static final int HEIGHT = 365;
+    private static final int WIDTH = 2 * HEIGHT;
 
     public static void main(String[] args) {
         new Main().run();
@@ -132,6 +134,7 @@ public class Main extends JavaKaraProgram {
         int x = 0;
         int y = HEIGHT - 1;
         int state = 1;
+        world.setLeaf(x, y, true);
         /*
          * 0 → Norden
          * 1 → Osten
@@ -202,3 +205,25 @@ public class Main extends JavaKaraProgram {
     }
 }
 ```
+
+## Gallerie
+
+**Lindenmayer-System mit Tiefe 1**
+![Lindenmayer-System mit Tiefe 1](./img/Lindenmayer1.png)
+
+**Lindenmayer-System mit Tiefe 2**
+![Lindenmayer-System mit Tiefe 2](./img/Lindenmayer2.png)
+
+**Lindenmayer-System mit Tiefe 3**
+![Lindenmayer-System mit Tiefe 3](./img/Lindenmayer3.png)
+
+**Lindenmayer-System mit Tiefe 4**
+![Lindenmayer-System mit Tiefe 4](./img/Lindenmayer4.png)
+
+**Lindenmayer-System mit Tiefe 5**
+![Lindenmayer-System mit Tiefe 5](./img/Lindenmayer5.png)
+
+**Lindenmayer-System mit Tiefe 6**
+![Lindenmayer-System mit Tiefe 6](./img/Lindenmayer6.png)
+
+Eine höhere Tiefe würde außerhalb der maximalen Weltgröße (`1000x1000`) liegen. Schade... 

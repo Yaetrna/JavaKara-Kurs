@@ -6,6 +6,11 @@
 >
 > ![Bild](./img/KaraUndBlätter.png)
 
+> # Voraussetzungen
+>
+> - [JavaKara Basics](../Einführung/Die%20JavaKara%20Umgebung.md)
+> - [if-Statements](../Java/if-Statements.md)
+
 Wir starten jedes JavaKara Programm fürs erste mit einer leeren Hauptmethode und arbeiten uns dann Stück für Stück durch das Problem durch. Die ersten Probleme sind noch relativ trivial, werden jedoch im Verlauf des Kurses deutlich komplexer und erfordern verschiedene Problemlösestrategien.
 
 ```Java
