@@ -20,7 +20,7 @@
     - [Lindenmayer-Systeme](./Interne%20JavaKara%20Aufgaben/XV.%20Lindenmayer-Systeme.md)
     - [Kleeblattbalken sortieren](./Interne%20JavaKara%20Aufgaben/XVI.%20Kleeblattbalken%20sortieren.md)
     - [Mandelbrot-Fraktal](./Interne%20JavaKara%20Aufgaben/XVII.%20Mandelbrot-Fraktal.md)
-- [Externe JavaKara Aufgaben]()
+- [Externe JavaKara Aufgaben](./Externe%20JavaKara%20Aufgaben/)
 - [Rekursion]()
 - [Java](./Java/Übersicht.md)
     - [if-Statements](./Java/if-statements.md)

@@ -31,8 +31,8 @@ public class Main extends JavaKaraProgram {
 >
 > Da der Quellcode, den wir in die `myMainProgram()`-Methode schreiben sofort ausgeführt wird, 
 > sobald wir aus *IntelliJ* das Programm starten, bleibt uns keine Zeit mehr die Welt in der JavaKara UI zu laden.
-> Aus diesem Grund kann die `.run()`-Methode einen Pfad zu einer `.world`-Datei als optionalen Parameter erhalten,
-> die Welt wird dann geladen bevor das Programm ausgeführt wird.
+> Aus diesem Grund kann die `.run()`-Methode einen Pfad zu einer `.world`-Datei als optionalen Parameter erhalten.
+> Die Welt wird dann geladen bevor das Programm ausgeführt wird.
 
 
 Dieses Problem lässt sich in zwei kleinere Probleme unterteilen, zunächst müssen wir Kara nach vorne bewegen, bis er auf einen Baum stößt.
@@ -46,6 +46,16 @@ public void myMainProgram() {
 ```
 
 Mit dem Sensor `kara.treeFront()` erhalten wir auskunft darüber, ob sich vor Kara ein Baum befindet. Der `!`-Operator ist der Negationsoperator, der einen booleschen Ausdruck negiert, d.h. in diesem Kontext, dass die `while`-Schleife so lange ausgeführt wird, bis `kara.treeFront()` den Wert `true` zurückgibt.
+
+Wir könnten auch als Äquivalenten code folgendes schreiben:
+
+```Java
+public void myMainProgram() {  
+    while (kara.treeFront() == false) {  
+        kara.move();  
+    }  
+}
+```
 
 Als nächstes müssen wir dafür sorgen, dass Kara ein Blatt immer dann hinlegt, wenn er auf keinem steht, und umgekehrt.
 
@@ -94,7 +104,7 @@ public void myMainProgram() {
     }  
     this.invertLeaf();  
 }  
-  
+
 private void invertLeaf() {  
     if (kara.onLeaf()) {  
         kara.removeLeaf();  
