@@ -19,7 +19,7 @@ Da alle Probleme außerhalb der Kategorie [„Einfache Probleme“](#einfache-pr
 - [Kleeblatt-PacMan](VII.%20Kleeblatt-PacMan.md)                            (7/10)
 - [Wand "entlang"](VIII.%20Wand%20entlang.md)                               (4/10)
 - [Slalom](IX.%20Slalom.md)                                                 (6/10)
-- [Bilder invertieren](X.%20Bilder%20invertieren.md)                        (7/10)
+- [Bilder invertieren](X.%20Bilder%20invertieren.md)                        (6/10)
 - [Spiralen zeichnen](XI.%20Spiralen%20zeichnen.md)                         (4/10)
 - [Dreiecke zeichnen](XII.%20Dreiecke%20zeichnen.md)                        (6/10)
 
