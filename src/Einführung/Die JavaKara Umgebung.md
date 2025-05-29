@@ -43,8 +43,8 @@ Das Programm besteht aus dem `import`-Statement, welches die `JavaKaraProgram`-K
 | Befehl                 | Funktion                                                              | Rückgabetyp |
 | ---------------------- | --------------------------------------------------------------------- | ----------- |
 | `kara.move()`          | Kara bewegt sich ein Feld nach vorne.                                 | `!boolean`  |
-| `kara.turnRight()`     | Kara dreht sich um $90^{\circ}$ nach rechts.                          | `!boolean`  |
-| `kara.turnLeft()`      | Kara dreht sich um $90^{\circ}$ nach links.                           | `!boolean`  |
+| `kara.turnRight()`     | Kara dreht sich um \\(90^{\circ}\\) nach rechts.                      | `!boolean`  |
+| `kara.turnLeft()`      | Kara dreht sich um \\(90^{\circ}\\) nach links.                       | `!boolean`  |
 | `kara.putLeaf()`       | Kara setzt auf das Feld, auf dem er sich gerade befindet ein Blatt.   | `!boolean`  |
 | `kara.removeLeaf()`    | Kara entfernt ein Blatt auf dem Feld auf dem er sich gerade befindet. | `!boolean`  |
 | `kara.treeFront()`     | Erkennt ob ein Baum vor Kara steht.                                   | `boolean`   |

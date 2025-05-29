@@ -6,3 +6,4 @@ title = "JavaKaraKurs"
 
 [output.html]
 mathjax-support = true
+additional-js = ["custom.js"]
